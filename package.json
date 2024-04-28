@@ -1,6 +1,6 @@
 {
   "name": "electron-builder",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "author": "kmf",
   "description": "A Next-Electorn app",
@@ -12,14 +12,19 @@
     "start": "next start",
     "lint": "next lint"
   },
+  "repository": "https://github.com/kmfiguerrez/electron-builder-updater",
+  "publish": {
+    "provider": "github",
+    "releaseType": "release"
+  },
   "build": {
-    "appId": "com.kmf.next-electron",
+    "appId": "com.electron.electron-builder",
     "productName": "Next Electron app",
     "win": {
       "target": "nsis"
     },
     "directories": {
-      "output": "build"
+      "output": "dist"
     }
   },
   "dependencies": {

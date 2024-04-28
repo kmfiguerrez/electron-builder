@@ -25,42 +25,42 @@ const createWindow = () => {
       win.loadURL("app://-");
     });
 
-    // autoUpdater.checkForUpdatesAndNotify()
+    autoUpdater.checkForUpdatesAndNotify()
 
-    // autoUpdater.on('update-available', () => {
-    //   const message = {
-    //     type: 'info',
-    //     buttons: ['Update Now', 'Later'],
-    //     title: 'Update Available',
-    //     detail: 'A new version of the app is available. Do you want to update now?',
-    //   };
+    autoUpdater.on('update-available', () => {
+      const message = {
+        type: 'info',
+        buttons: ['Update Now', 'Later'],
+        title: 'Update Available',
+        detail: 'A new version of the app is available. Do you want to update now?',
+      };
   
-    //   dialog.showMessageBox(mainWindow, message).then((result) => {
-    //     if (result.response === 0) {
-    //       autoUpdater.downloadUpdate();
-    //     }
-    //   });
-    // });
+      dialog.showMessageBox(mainWindow, message).then((result) => {
+        if (result.response === 0) {
+          autoUpdater.downloadUpdate();
+        }
+      });
+    });
   
-    // autoUpdater.on('update-downloaded', (updateInfo) => {
-    //   const message = {
-    //     type: 'info',
-    //     buttons: ['Restart', 'Cancel'],
-    //     title: 'Update Downloaded',
-    //     detail: `New version ${updateInfo.version} downloaded. Restart the app to install.`,
-    //   };
+    autoUpdater.on('update-downloaded', (updateInfo) => {
+      const message = {
+        type: 'info',
+        buttons: ['Restart', 'Cancel'],
+        title: 'Update Downloaded',
+        detail: `New version ${updateInfo.version} downloaded. Restart the app to install.`,
+      };
   
-    //   dialog.showMessageBox(mainWindow, message).then((result) => {
-    //     if (result.response === 0) {
-    //       autoUpdater.quitAndInstall();
-    //     }
-    //   });
-    // });
+      dialog.showMessageBox(mainWindow, message).then((result) => {
+        if (result.response === 0) {
+          autoUpdater.quitAndInstall();
+        }
+      });
+    });
   
-    // autoUpdater.on('error', (error) => {
-    //   console.error('Error in auto-updater:', error);
-    //   // Handle errors (optional)
-    // });
+    autoUpdater.on('error', (error) => {
+      console.error('Error in auto-updater:', error);
+      // Handle errors (optional)
+    });
 
   } 
   else {
